@@ -14,7 +14,8 @@ import java.util.logging.Logger;
  * and has the hazard of becoming unending.  A round limit is available to cap the run.
  *
  * Basic function - A Deck is instantiated that contains a complete set of Card objects.
- * A list of Players is instantiated to begin the game.  Once the game is started a Pot is
+ * A list of Players is instantiated to begin the game.  The Cards are dealt (giveCard)
+ * to all the Players until the Deck is empty.  Once the game is started a Pot is
  * instantiated and a round commences.  In a round each Player plays (transfers) a card to
  * the Pot.  The Pot keeps track of who played which Card and determines a winner.  If there
  * is War then a round is extended whereby each player must submit a War Pile and play a
@@ -100,16 +101,15 @@ public class WarCards {
             System.out.println("winner:" + pot.winner().getPlayerNumber());
             pot.winner().collectPot(pot);
 
+            // should just check for player with 52
             Player winner = null;
-            int playerCount = 0;
             for(Player p : players){
                 System.out.println("win check " + p.getPlayerNumber() + " has:" + p.cardCount());
-                if(p.hasCards()){
-                    playerCount++;
+                if(p.cardCount() == 52){
                     winner = p;
                 }
             }
-            if(playerCount == 1)
+            if(null != winner)
                 return winner;
 
         }

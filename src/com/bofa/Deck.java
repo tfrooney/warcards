@@ -48,7 +48,9 @@ public class Deck {
     }
 
     public Card dealCard() {
-        Card c = cards.remove(0);
+        Card c = null;
+        if(!cards.isEmpty())
+            c = cards.remove(0);
         return c;
     }
 }
