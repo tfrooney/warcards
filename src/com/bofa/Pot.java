@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.TreeSet;
 
 /**
+ * Implements the Pot class.  The Pot represents the list of Cards that have been
+ * played by all the players in any given round.  The Pot manages the outcome
+ * of rounds of play.  A Player will play Cards and the Pot will determine the
+ * winner of the round.
+ *
  * Created by trooney on 11/30/15.
  */
 public class Pot {

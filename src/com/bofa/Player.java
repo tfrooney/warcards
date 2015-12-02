@@ -3,6 +3,12 @@ package com.bofa;
 import java.util.ArrayList;
 
 /**
+ * Implements the Player class.  A Player keeps a hand (list) of cards to play
+ * Each Player has a unique id (playerNumber).  A Player will play cards in turn
+ * and if they are a winner of a round they will gain Cards (collectPot).  In the
+ * event of War a Player will submit the required number of Cards (getWarPile) before
+ * playing a Card.
+ *
  * Created by trooney on 11/30/15.
  */
 public class Player implements Comparable<Player> {

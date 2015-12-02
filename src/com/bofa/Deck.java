@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
+ * Implements the deck class.  This represents a collection of playing cards
+ * Upon initialization the deck will contain a set of 52 card objects
+ * The deck may be shuffled at any point
+ *
+ *
  * Created by trooney on 11/30/15.
  */
 public class Deck {
