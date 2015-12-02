@@ -19,7 +19,13 @@ warPile = 3
 
 
 class Card():
-    """ Implements the card class for use in simulating a standard deck of cards """
+    """ Implements the card class for use in simulating a standard deck of cards
+    Suit is mostly ignored for this exercise.  It does not factor in evaluating
+    game play.  It along with the value could be mapped to the traditional naming
+    of Spades, Clubs, Diamonds, and Hearts along with Jack, Queen, King, Ace.
+    This would only be cosmetic and can still be implemented without impacting
+    the logic of the game in any significant way.
+    """
 
     def __init__(self, card_value, card_suit):
         self.value = card_value
@@ -92,7 +98,7 @@ class Pot():
         self.pot = []
 
     def play_card(self, card, player):
-        print str(card.value) + ' ' + str(player.player_number)
+        print 'card value:' + str(card.value) + ' player:' + str(player.player_number)
         if card.value > self.high_card:
             self.high_card = card.value
             self.winner = player
@@ -168,6 +174,7 @@ def main(argv):
             len(player.hand))  # questionable violation of encapsulation
 
     # play
+    max_rounds = 1000
     round_count = 0
     while True:
         round_count += 1
@@ -187,6 +194,9 @@ def main(argv):
             if len(player.hand) == 52:
                 print 'Winner: Player-' + str(player.player_number)
                 exit(0)
+
+        if round_count > max_rounds:
+            print 'Probable stalemate - no winner after ' + str(max_rounds)
 
 
 main("")
